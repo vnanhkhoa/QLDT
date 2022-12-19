@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLDT.Module", "QLDT.Module\QLDT.Module.csproj", "{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLDT.Win", "QLDT.Win\QLDT.Win.csproj", "{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLDT.Blazor.Server", "QLDT.Blazor.Server\QLDT.Blazor.Server.csproj", "{1B26EAD5-6585-40AB-B3AD-35C33656552A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA77BC1-92DB-49F6-8DE3-B65CDE6419F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8EDF228-7A0F-4DB0-9D71-52E74D051BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B26EAD5-6585-40AB-B3AD-35C33656552A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B26EAD5-6585-40AB-B3AD-35C33656552A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B26EAD5-6585-40AB-B3AD-35C33656552A}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{1B26EAD5-6585-40AB-B3AD-35C33656552A}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{1B26EAD5-6585-40AB-B3AD-35C33656552A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B26EAD5-6585-40AB-B3AD-35C33656552A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA25F240-6B90-4C6B-999F-AE2D2D0562E1}
+	EndGlobalSection
+EndGlobal

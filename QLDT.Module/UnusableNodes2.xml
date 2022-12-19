@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="KhoaHoc_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="LopHocPhans" LinkView="LopHocPhan_BangDiemLopHPs_ListView" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="LopHocPhans" Caption="Lớp Học Phần" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

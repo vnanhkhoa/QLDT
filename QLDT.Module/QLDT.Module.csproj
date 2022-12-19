@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Deterministic>false</Deterministic>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Configurations>Debug;Release;EasyTest</Configurations>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\DangKyHocModifiController.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="BusinessObjects\QLDT.xpo" />
+    <None Remove="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="Controllers\ThemHocVienController.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp" Version="22.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="22.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="22.1.5" />
+    <PackageReference Include="DevExpress.Persistent.Base" Version="22.1.5" />
+    <PackageReference Include="DevExpress.Persistent.BaseImpl.Xpo" Version="22.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes1.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes2.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+  </ItemGroup>
+</Project>

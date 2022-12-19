@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "QLDT.Module": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    }
+  }
+}

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="QLDT">
+  <ActionDesign>
+    <Actions>
+      <Action Id="ThemMonHoc" SelectionDependencyType="RequireMultipleObjects" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="QLDT.Module.BusinessObjects.DangKyHoc" DefaultListView="HocVien_DangKyHocs_ListView" />
+    <Class Name="QLDT.Module.BusinessObjects.KhungChuongTrinh" DefaultListViewShowFindPanel="False" />
+  </BOModel>
+  <NavigationItems NavigationStyle="TreeList" StartupNavigationItem="ChuongTrinhDaoTao_ListView">
+    <Items>
+      <Item Id="Default" Caption="Đào Tạo" Index="0">
+        <Items>
+          <Item Id="BaiThi_ListView" Removed="True" />
+          <Item Id="BangDiemKhoaHoc_ListView" Removed="True" />
+          <Item Id="BangDiemLopHP_ListView" Removed="True" />
+          <Item Id="CaThi_ListView" Removed="True" />
+          <Item Id="ChuongTrinhDaoTao_ListView" Removed="True" />
+          <Item Id="DangKyHoc_ListView" Removed="True" />
+          <Item Id="DanhSachThi_ListView" Removed="True" />
+          <Item Id="HocVien_ListView" Removed="True" />
+          <Item Id="KhungChuongTrinh_ListView" ObjectKey="" ViewId="KhungChuongTrinh_ListView" IsNewNode="True" Removed="True" />
+          <Item Id="LopHocPhan_ListView" Removed="True" />
+          <Item Id="MonHoc_ListView" ViewId="MonHoc_ListView" ObjectKey="" IsNewNode="True" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="@62522b98-163f-407c-b829-b3e8367b6377" Caption="Khóa Học" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="BangDiemKhoaHoc_ListView" ViewId="BangDiemKhoaHoc_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="BangDiemLopHP_ListView" ViewId="BangDiemLopHP_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="ChuongTrinhDaoTao_ListView" ViewId="ChuongTrinhDaoTao_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="DangKyHoc_ListView" ViewId="DangKyHoc_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="HocVien_ListView" ViewId="HocVien_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="LopHocPhan_ListView" ViewId="LopHocPhan_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@0ff3dfe6-ff44-4354-ad92-7af2e7a9ff92" Caption="Thi" Index="2" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="BaiThi_ListView" ViewId="BaiThi_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="CaThi_ListView" ViewId="CaThi_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="DanhSachThi_ListView" ViewId="DanhSachThi_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="22.1.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="BangDiemKhoaHoc_ListView">
+      <Columns>
+        <ColumnInfo Id="DangKyHocBDKH" Index="0" />
+        <ColumnInfo Id="MoHocBD" Index="1" />
+        <ColumnInfo Id="Diem" Index="2" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ChuongTrinhDaoTao_DetailView">
+      <Items>
+        <PropertyEditor Id="KhungChuongTrinhs" LinkView="ChuongTrinhDaoTao_KhungChuongTrinhs_ListView" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="9.613869188337274">
+            <LayoutGroup Id="ChuongTrinhDaoTao" RelativeSize="100" Caption="ChuongTrinhDaoTao">
+              <LayoutItem Id="TenChuongTrinh" ViewItem="TenChuongTrinh" Index="0" RelativeSize="51.63934426229508" IsNewNode="True" Removed="True" />
+              <LayoutGroup Id="Autoab8b1c1f-5591-4b2d-b910-8ff1b9fd18d3" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="48.36065573770492" IsNewNode="True">
+                <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" Index="0" RelativeSize="49.967213114754095" IsNewNode="True" />
+                <LayoutItem Id="SoMon" ViewItem="SoMon" Index="1" RelativeSize="50.032786885245905" HorizontalAlign="Left" VerticalAlign="Middle" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="SoMon" RelativeSize="48.36065573770492" Index="1" Removed="True" />
+              <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" Index="1" RelativeSize="30.136986301369863" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ChuongTrinhDaoTao_KhungChuongTrinhs_ListView" MasterDetailMode="ListViewOnly" FreezeColumnIndices="True" AllowDelete="False" AllowLink="False" AllowNew="False" DetailViewID="" MasterDetailView="">
+      <Columns>
+        <ColumnInfo Id="ChuongTrinhDaoTao" Index="-1" />
+        <ColumnInfo Id="Oid" Index="-1" />
+        <ColumnInfo Id="MonHocKCT" Index="0" />
+        <ColumnInfo Id="GhiChu" Index="1" />
+      </Columns>
+    </ListView>
+    <ListView Id="ChuongTrinhDaoTao_ListView" AutoExpandAllGroups="True" FreezeColumnIndices="True">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" />
+        <ColumnInfo Id="TenChuongTrinh" Index="0" />
+        <ColumnInfo Id="ThoiGianDaoTao" Index="1" />
+        <ColumnInfo Id="SoMon" Index="2" />
+      </Columns>
+      <SplitLayout ViewsOrder="ListViewDetailView" />
+    </ListView>
+    <DetailView Id="DangKyHoc_DetailView">
+      <Items>
+        <PropertyEditor Id="BangDiemLopHPs" Caption="Bảng Điểm Lớp Học Phần" />
+        <PropertyEditor Id="DanhSachThis" Caption="Danh Sách Thi" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="16.317733990147783">
+            <LayoutGroup Id="DangKyHoc" Caption="DangKyHoc" RelativeSize="100">
+              <LayoutItem Id="HocVienDKH" RelativeSize="26.41509433962264" />
+              <LayoutGroup Id="Auto40140c69-cb73-4700-af9d-2fcbd70de825" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="18.867924528301888" IsNewNode="True">
+                <LayoutItem Id="NgayDangKyHoc" ViewItem="NgayDangKyHoc" Index="0" RelativeSize="49.95159728944821" IsNewNode="True" />
+                <LayoutItem Id="HaBac" ViewItem="HaBac" Index="1" RelativeSize="50.04840271055179" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Autoa5e9e7db-e393-4254-9d85-8d7cfc0b1bce" ShowCaption="False" Caption="" Index="2" RelativeSize="54.716981132075475" IsNewNode="True">
+                <LayoutGroup Id="Autobe20d169-3f90-4869-ab9d-df6fa508df66" ShowCaption="False" Caption="Autobe20d169-3f90-4869-ab9d-df6fa508df66(6)" Direction="Horizontal" Index="0" RelativeSize="55.172413793103445" IsNewNode="True">
+                  <LayoutItem Id="NgayHoanThanh" ViewItem="NgayHoanThanh" Index="0" RelativeSize="49.95159728944821" IsNewNode="True" />
+                  <LayoutItem Id="HoanThanhKhoaHoc" ViewItem="HoanThanhKhoaHoc" Index="1" RelativeSize="50.04840271055179" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto26e2d685-b9c9-461b-81a4-a47bf0219047" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="44.827586206896555" IsNewNode="True">
+                  <LayoutItem Id="KhoahocDKH" ViewItem="KhoahocDKH" Index="0" RelativeSize="49.95159728944821" IsNewNode="True" />
+                  <LayoutItem Id="XepLoai" ViewItem="XepLoai" Index="1" RelativeSize="50.04840271055179" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="83.68226600985221">
+            <LayoutGroup Id="BangDiemKhoaHocs" RelativeSize="100">
+              <LayoutItem Id="BangDiemKhoaHocs" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="BangDiemLopHPs" RelativeSize="100">
+              <LayoutItem Id="BangDiemLopHPs" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="DanhSachThis" RelativeSize="100">
+              <LayoutItem Id="DanhSachThis" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="KhoaHoc_HocViens_ListView" AllowNew="False" AllowUnlink="False" DataAccessMode="Client" DetailViewID="DangKyHoc_DetailView">
+      <Columns>
+        <ColumnInfo Id="HocVienDKH" Index="0" />
+      </Columns>
+    </ListView>
+    <DetailView Id="KhungChuongTrinh_DetailView" DefaultFocusedItem="" />
+    <ListView Id="KhungChuongTrinh_ListView" FreezeColumnIndices="True" Caption="Khung Chương Trình" AutoExpandAllGroups="True" GroupSummary="" DetailViewID="">
+      <Columns>
+        <ColumnInfo Id="Oid" Index="-1" />
+        <ColumnInfo Id="ChuongTrinhDaoTao" Index="0" />
+        <ColumnInfo Id="MonHocKCT" Index="1" />
+        <ColumnInfo Id="GhiChu" Index="2" />
+      </Columns>
+    </ListView>
+    <ListView Id="LopHocPhan_BangDiemLopHPs_ListView" AllowEdit="True" AllowLink="False" AllowNew="False" AllowUnlink="False" NewItemRowPosition="Top" ShowAutoFilterRow="True" />
+    <ListView Id="MonHoc_BangDiemKhoaHocs_ListView">
+      <Columns>
+        <ColumnInfo Id="DangKyHocBDKH" Caption="Học Viên" Index="0" />
+      </Columns>
+    </ListView>
+    <ListView Id="MonHoc_KhungChuongTrinhs_ListView" AllowDelete="True" AllowLink="True" AllowNew="True" />
+  </Views>
+</Application>

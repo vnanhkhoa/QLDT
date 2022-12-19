@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ChuongTrinhDaoTao_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="KhungChuongTrinhs_Group" ShowCaption="False" Caption="Khung Chương Trình" RelativeSize="90.38613081166272" Direction="Vertical" VerticalAlign="Middle" HorizontalAlign="Left">
+            <LayoutItem Id="KhungChuongTrinhs" ViewItem="KhungChuongTrinhs" Index="0" RelativeSize="100" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="DangKyHoc_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DangKyHoc">
+              <LayoutItem Id="BangDiemKhoaHocDKH" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="DangKyHoc_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DangKyHoc">
+              <LayoutGroup Id="DangKyHoc_col2" RelativeSize="50.033760972316" Caption="DangKyHoc_col2" Removed="True">
+                <LayoutItem Id="HoanThanhKhoaHoc" RelativeSize="5.298570227081581" Index="0" Removed="True" />
+                <LayoutItem Id="HocVienDKH" RelativeSize="100" Index="0" />
+                <LayoutItem Id="NgayHoanThanh" RelativeSize="5.298570227081581" Index="0" Removed="True" />
+                <LayoutItem Id="DiemKhoaHoc" RelativeSize="5.298570227081581" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
