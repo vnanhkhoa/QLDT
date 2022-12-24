@@ -37,45 +37,42 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<int>(nameof(SoTinChi), ref _SoTinChi, value); }
         }
 
-
-        private int _SoGio;
         [XafDisplayName("Số Giờ")]
         public int SoGio
         {
-            get { return _SoGio; }
-            set { SetPropertyValue<int>(nameof(SoGio), ref _SoGio, value); }
+            get { return SoGioLT + SoGioTH + SoGioBT + SoGioDA; }
         }
 
-        private int _SoBaiLyThuyet;
-        [XafDisplayName("Lý Thuyết")]
-        public int SoBaiLyThuyet
+        private int _SoGioLT;
+        [XafDisplayName("Số Giờ Lý Thuyết")]
+        public int SoGioLT
         {
-            get { return _SoBaiLyThuyet; }
-            set { SetPropertyValue<int>(nameof(SoBaiLyThuyet), ref _SoBaiLyThuyet, value); }
+            get { return _SoGioLT; }
+            set { SetPropertyValue<int>(nameof(SoGioLT), ref _SoGioLT, value); }
         }
 
-        private int _SoBaiThucHanh;
-        [XafDisplayName("Thực Hành")]
-        public int SoBaiThucHanh
+        private int _SoGioTH;
+        [XafDisplayName("Số Giờ Thực Hành")]
+        public int SoGioTH
         {
-            get { return _SoBaiThucHanh; }
-            set { SetPropertyValue<int>(nameof(SoBaiThucHanh), ref _SoBaiThucHanh, value); }
+            get { return _SoGioTH; }
+            set { SetPropertyValue<int>(nameof(SoGioTH), ref _SoGioTH, value); }
         }
 
-        private int _SoBaiTap;
-        [XafDisplayName("Bài Tập")]
-        public int SoBaiTap
+        private int _SoGioBT;
+        [XafDisplayName("Số Giờ Bài Tập")]
+        public int SoGioBT
         {
-            get { return _SoBaiTap; }
-            set { SetPropertyValue<int>(nameof(SoBaiTap), ref _SoBaiTap, value); }
+            get { return _SoGioBT; }
+            set { SetPropertyValue<int>(nameof(SoGioBT), ref _SoGioBT, value); }
         }
 
-        private int _SoDuAn;
-        [XafDisplayName("Dự Án")]
-        public int SoDuAn
+        private int _SoGioDA;
+        [XafDisplayName("Số Giờ Dự Án")]
+        public int SoGioDA
         {
-            get { return _SoDuAn; }
-            set { SetPropertyValue<int>(nameof(SoDuAn), ref _SoDuAn, value); }
+            get { return _SoGioDA; }
+            set { SetPropertyValue<int>(nameof(SoGioDA), ref _SoGioDA, value); }
         }
 
         private string _CongThucDiem;
@@ -115,7 +112,6 @@ namespace QLDT.Module.BusinessObjects
         {
             get { return GetCollection<LopHocPhan>(nameof(LopHocPhans)); }
         }
-
 
         [Association("nhd-mh")]
         [XafDisplayName("Ngân hàng đề")]

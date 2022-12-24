@@ -24,14 +24,38 @@ namespace QLDT.Module.BusinessObjects
         }
 
 
-        private string _HoVaTen;
-        [XafDisplayName("Họ và Tên")]
-        public string HoVaTen
+        private string _HoDem;
+        [XafDisplayName("Họ Đệm")]
+        [VisibleInListView(false)]
+        public string HoDem
         {
-            get { return _HoVaTen; }
-            set { SetPropertyValue<string>(nameof(HoVaTen), ref _HoVaTen, value); }
+            get { return _HoDem; }
+            set { SetPropertyValue<string>(nameof(HoDem), ref _HoDem, value); }
         }
 
+        private string _Ten;
+        [XafDisplayName("Tên")]
+        [VisibleInListView(false)]
+        public string Ten
+        {
+            get { return _Ten; }
+            set { SetPropertyValue<string>(nameof(Ten), ref _Ten, value); }
+        }
+
+        [XafDisplayName("Họ Và Tên")]
+        [VisibleInDetailView(false)]
+        public string HoVaTen
+        {
+            get { return string.Format("{0} {1}", HoDem, Ten); }
+        }
+
+        private HocVien.Gender _GioiTinh;
+        [XafDisplayName("Giới Tính")]
+        public HocVien.Gender GioiTinh
+        {
+            get { return _GioiTinh; }
+            set { SetPropertyValue(nameof(GioiTinh), ref _GioiTinh, value); }
+        }
 
         private DateTime _NgaySinh;
         [XafDisplayName("Ngày Sinh")]
@@ -41,14 +65,15 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<DateTime>(nameof(NgaySinh), ref _NgaySinh, value); }
         }
 
-
-        private bool _isMale;
-        [XafDisplayName("Nam")]
-        public bool isMale
+        private string _DiaChi;
+        [XafDisplayName("Địa Chỉ")]
+        public string DiaChi
         {
-            get { return _isMale; }
-            set { SetPropertyValue<bool>(nameof(isMale), ref _isMale, value); }
+            get { return _DiaChi; }
+            set { SetPropertyValue<string>(nameof(DiaChi), ref _DiaChi, value); }
         }
+
+
 
         private string _SoDienThoai;
         [XafDisplayName("Số Điện Thoại")]
@@ -59,7 +84,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
 
-        [DevExpress.Xpo.Aggregated,Association("lhp-gv")]
+        [DevExpress.Xpo.Aggregated, Association("lhp-gv")]
         [XafDisplayName("Lớp Học Phần")]
         public XPCollection<LopHocPhan> LopHocPhans
         {

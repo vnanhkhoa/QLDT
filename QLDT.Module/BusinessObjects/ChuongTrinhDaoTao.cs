@@ -28,12 +28,12 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(TenChuongTrinh), ref _TenChuongTrinh, value); }
         }
 
-        private string _ThoiGianDaoTao;
-        [XafDisplayName("Thời Gian Đào Tạo")]
-        public string ThoiGianDaoTao
+        private int _SoNgay;
+        [XafDisplayName("Sô Ngày Đào Tạo")]
+        public int SoNgay
         {
-            get { return _ThoiGianDaoTao; }
-            set { SetPropertyValue<string>(nameof(ThoiGianDaoTao), ref _ThoiGianDaoTao, value); }
+            get { return _SoNgay; }
+            set { SetPropertyValue<int>(nameof(SoNgay), ref _SoNgay, value); }
         }
 
         [XafDisplayName("Số Môn")]

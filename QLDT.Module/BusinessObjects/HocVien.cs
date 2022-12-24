@@ -21,12 +21,30 @@ namespace QLDT.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-        private string _HoVaTen;
+
+        private string _Ho;
+        [XafDisplayName("Họ")]
+        [VisibleInListView(false)]
+        public string Ho
+        {
+            get { return _Ho; }
+            set { SetPropertyValue<string>(nameof(Ho), ref _Ho, value); }
+        }
+
+        private string _Ten;
+        [XafDisplayName("Tên")]
+        [VisibleInListView(false)]
+        public string Ten
+        {
+            get { return _Ten; }
+            set { SetPropertyValue<string>(nameof(Ten), ref _Ten, value); }
+        }
+
         [XafDisplayName("Họ và Tên")]
+        [VisibleInDetailView(false)]
         public string HoVaTen
         {
-            get { return _HoVaTen; }
-            set { SetPropertyValue<string>(nameof(HoVaTen), ref _HoVaTen, value); }
+            get { return String.Format("{0} {1}", Ho,Ten); }
         }
 
 
@@ -38,12 +56,12 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<DateTime>(nameof(NgaySinh), ref _NgaySinh, value); }
         }
 
-        private bool _isMale;
-        [XafDisplayName("Nam")]
-        public bool isMale
+        private Gender _GioiTinh;
+        [XafDisplayName("Giới Tính")]
+        public Gender GioiTinh
         {
-            get { return _isMale; }
-            set { SetPropertyValue<bool>(nameof(isMale), ref _isMale, value); }
+            get { return _GioiTinh; }
+            set { SetPropertyValue<Gender>(nameof(GioiTinh), ref _GioiTinh, value); }
         }
 
 
@@ -81,12 +99,28 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
         }
 
+        private string _DiaChi;
+        [XafDisplayName("Địa Chỉ")]
+        public string DiaChi
+        {
+            get { return _GhiChu; }
+            set { SetPropertyValue<string>(nameof(DiaChi), ref _DiaChi, value); }
+        }
 
         [Association("dkh-hv")]
+        [XafDisplayName("Đăng Ký Học")]
         public XPCollection<DangKyHoc> DangKyHocs
         {
             get { return GetCollection<DangKyHoc>(nameof(DangKyHocs)); }
         }
 
+        public enum Gender
+        {
+            [XafDisplayName("Nam")]
+            MALE,
+            [XafDisplayName("Nữ")]
+            FEMALE
+        }
     }
+
 }

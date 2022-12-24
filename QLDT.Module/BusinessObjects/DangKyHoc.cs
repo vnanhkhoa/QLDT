@@ -46,13 +46,13 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<DateTime>(nameof(NgayDangKyHoc), ref _NgayDangKyHoc, value); }
         }
 
-        private string _HaBac;
-        [XafDisplayName("Hạ Bậc")]
+        private Boolean _HoanThanhKhoaHoc;
+        [XafDisplayName("Hoàn Thành Học")]
         [VisibleInDetailView(false)]
-        public string HaBac
+        public Boolean HoanThanhKhoaHoc
         {
-            get { return _HaBac; }
-            set { SetPropertyValue<string>(nameof(HaBac), ref _HaBac, value); }
+            get { return _HoanThanhKhoaHoc; }
+            set { SetPropertyValue<Boolean>(nameof(HoanThanhKhoaHoc), ref _HoanThanhKhoaHoc, value); }
         }
 
         private string _XepLoai;
@@ -73,22 +73,22 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<float>(nameof(DiemKhoaHoc), ref _DiemKhoaHoc, value); }
         }
 
-        private bool _HoanThanhKhoaHoc;
-        [XafDisplayName("Hoàn Thành Học")]
+        private Boolean _HaBac;
+        [XafDisplayName("Hạ Bậc")]
         [VisibleInDetailView(false)]
-        public bool HoanThanhKhoaHoc
+        public Boolean HaBac
         {
-            get { return _HoanThanhKhoaHoc; }
-            set { SetPropertyValue<bool>(nameof(HoanThanhKhoaHoc), ref _HoanThanhKhoaHoc, value); }
+            get { return _HaBac; }
+            set { SetPropertyValue<Boolean>(nameof(HaBac), ref _HaBac, value); }
         }
 
-        private DateTime _NgayHoanThanh;
-        [XafDisplayName("Ngày Hoàn Thành")]
+        private XepLoai _LoaiTN;
+        [XafDisplayName("Loại Tốt Nghiệp")]
         [VisibleInDetailView(false)]
-        public DateTime NgayHoanThanh
+        public XepLoai LoaiTN
         {
-            get { return _NgayHoanThanh; }
-            set { SetPropertyValue<DateTime>(nameof(NgayHoanThanh), ref _NgayHoanThanh, value); }
+            get { return _LoaiTN; }
+            set { SetPropertyValue<XepLoai>(nameof(LoaiTN), ref _LoaiTN, value); }
         }
 
         [Association("bdkh-dkh")]

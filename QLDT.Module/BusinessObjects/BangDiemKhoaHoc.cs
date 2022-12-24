@@ -38,14 +38,6 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<double?>(nameof(Diem), ref _Diem, value); }
         }
 
-        private int _SoLanHoc;
-        [XafDisplayName("Số Lần Học")]
-        public int SoLanHoc
-        {
-            get { return _SoLanHoc; }
-            set { SetPropertyValue<int>(nameof(SoLanHoc), ref _SoLanHoc, value); }
-        }
-
 
         private string _GhiChu;
         [XafDisplayName("Ghi Chú")]

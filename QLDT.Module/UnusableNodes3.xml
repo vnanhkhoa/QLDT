@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ChuongTrinhDaoTao_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ChuongTrinhDaoTao">
+              <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" Index="1" RelativeSize="30.136986301369863" Removed="True" />
+              <LayoutGroup Id="Autoab8b1c1f-5591-4b2d-b910-8ff1b9fd18d3">
+                <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ChuongTrinhDaoTao_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ThoiGianDaoTao" Index="1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DangKyHoc_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DangKyHoc">
+              <LayoutGroup Id="Autoa5e9e7db-e393-4254-9d85-8d7cfc0b1bce">
+                <LayoutGroup Id="Autobe20d169-3f90-4869-ab9d-df6fa508df66">
+                  <LayoutItem Id="NgayHoanThanh" ViewItem="NgayHoanThanh" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

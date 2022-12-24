@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="QLDT">
-  <ActionDesign>
-    <Actions>
-      <Action Id="ThemMonHoc" SelectionDependencyType="RequireMultipleObjects" />
-    </Actions>
-  </ActionDesign>
   <BOModel>
     <Class Name="QLDT.Module.BusinessObjects.DangKyHoc" DefaultListView="HocVien_DangKyHocs_ListView" />
     <Class Name="QLDT.Module.BusinessObjects.KhungChuongTrinh" DefaultListViewShowFindPanel="False" />
@@ -70,13 +65,12 @@
                 <LayoutItem Id="SoMon" ViewItem="SoMon" Index="1" RelativeSize="50.032786885245905" HorizontalAlign="Left" VerticalAlign="Middle" IsNewNode="True" />
               </LayoutGroup>
               <LayoutItem Id="SoMon" RelativeSize="48.36065573770492" Index="1" Removed="True" />
-              <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" Index="1" RelativeSize="30.136986301369863" Removed="True" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="ChuongTrinhDaoTao_KhungChuongTrinhs_ListView" MasterDetailMode="ListViewOnly" FreezeColumnIndices="True" AllowDelete="False" AllowLink="False" AllowNew="False" DetailViewID="" MasterDetailView="">
+    <ListView Id="ChuongTrinhDaoTao_KhungChuongTrinhs_ListView" MasterDetailMode="ListViewOnly" FreezeColumnIndices="True" AllowDelete="True" AllowLink="False" AllowNew="False" DetailViewID="" MasterDetailView="">
       <Columns>
         <ColumnInfo Id="ChuongTrinhDaoTao" Index="-1" />
         <ColumnInfo Id="Oid" Index="-1" />
@@ -88,7 +82,6 @@
       <Columns>
         <ColumnInfo Id="Oid" Index="-1" />
         <ColumnInfo Id="TenChuongTrinh" Index="0" />
-        <ColumnInfo Id="ThoiGianDaoTao" Index="1" />
         <ColumnInfo Id="SoMon" Index="2" />
       </Columns>
       <SplitLayout ViewsOrder="ListViewDetailView" />
@@ -133,6 +126,11 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="DapAn_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="NganHangDeDA" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
     <ListView Id="KhoaHoc_HocViens_ListView" AllowNew="False" AllowUnlink="False" DataAccessMode="Client" DetailViewID="DangKyHoc_DetailView">
       <Columns>
         <ColumnInfo Id="HocVienDKH" Index="0" />

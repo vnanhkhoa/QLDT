@@ -90,7 +90,6 @@ namespace QLDT.Module.BusinessObjects
             }
         }
 
-
         private double? _TongKet;
         [XafDisplayName("Tổng Kết"), ModelDefault("AllowEdit", "false")]
         public double? TongKet
@@ -101,7 +100,6 @@ namespace QLDT.Module.BusinessObjects
                 if (isModified && !IsLoading && !IsSaving && !IsDeleted) Tinhdiem();
             }
         }
-
 
         private bool _DuDieuKien;
         [XafDisplayName("Đủ Điều Kiện")]

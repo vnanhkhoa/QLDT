@@ -19,12 +19,10 @@ namespace QLDT.Module.BusinessObjects
             base.AfterConstruction();
         }
 
-        private string _TenKhoaHoc;
         [XafDisplayName("Tên Khoá Học")]
         public string TenKhoaHoc
         {
-            get { return _TenKhoaHoc; }
-            set { SetPropertyValue<string>(nameof(TenKhoaHoc), ref _TenKhoaHoc, value); }
+            get { return String.Format("{0}({1})",CTDT.TenChuongTrinh,NgayBatDau); }
         }
 
         private DateTime _NgayBatDau;
@@ -58,6 +56,13 @@ namespace QLDT.Module.BusinessObjects
         {
             get { return GetCollection<DangKyHoc>(nameof(HocViens)); }
         }
+
+        [Association("lhp-kh")]
+        public XPCollection<LopHocPhan> LopHocPhans
+        {
+            get { return GetCollection<LopHocPhan>(nameof(LopHocPhans)); }
+        }
+
 
         [XafDisplayName("Số HV")]
         [ReadOnly(true)]

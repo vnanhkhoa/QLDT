@@ -24,12 +24,20 @@ namespace QLDT.Module.BusinessObjects
         }
 
 
-        private string _TenLopHocPhan;
-        [XafDisplayName("Tên Lớp Học Phần")]
-        public string TenLopHocPhan
+        private string _MaLHP;
+        [XafDisplayName("Lịch Học")]
+        public string MaLHP
         {
-            get { return _TenLopHocPhan; }
-            set { SetPropertyValue<string>(nameof(TenLopHocPhan), ref _TenLopHocPhan, value); }
+            get { return _MaLHP; }
+            set { SetPropertyValue<string>(nameof(MaLHP), ref _MaLHP, value); }
+        }
+
+        private string _LichHoc;
+        [XafDisplayName("Lịch Học")]
+        public string LichHoc
+        {
+            get { return _LichHoc; }
+            set { SetPropertyValue<string>(nameof(LichHoc), ref _LichHoc, value); }
         }
 
         private MonHoc _MonHocLHP;
@@ -39,6 +47,31 @@ namespace QLDT.Module.BusinessObjects
         {
             get { return _MonHocLHP; }
             set { SetPropertyValue(nameof(MonHocLHP), ref _MonHocLHP, value); }
+        }
+
+        private int _SoBuoi;
+        [XafDisplayName("Số Buổi")]
+        public int SoBuoi
+        {
+            get { return _SoBuoi; }
+            set { SetPropertyValue<int>(nameof(SoBuoi), ref _SoBuoi, value); }
+        }
+
+        private DateTime? _NgayBatDau;
+        [XafDisplayName("Ngày Bắt Đầu")]
+        public DateTime? NgayBatDau
+        {
+            get { return _NgayBatDau; }
+            set { SetPropertyValue<DateTime?>(nameof(NgayBatDau), ref _NgayBatDau, value); }
+        }
+
+        private KhoaHoc _KhoaHocLHP;
+        [XafDisplayName("Khóa Học")]
+        [Association("lhp-kh")]
+        public KhoaHoc KhoaHocLHP
+        {
+            get { return _KhoaHocLHP; }
+            set { SetPropertyValue<KhoaHoc>(nameof(KhoaHocLHP), ref _KhoaHocLHP, value); }
         }
 
         private string _CongThucDieuKienDiem;
@@ -57,29 +90,13 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(CongThucDiem), ref _CongThucDiem, value); }
         }
 
-        private Status _TrangThai;
+        /*private Status _TrangThai;
         [XafDisplayName("Trạng Thái")]
         public Status TrangThai
         {
             get { return _TrangThai; }
             set { SetPropertyValue<Status>(nameof(TrangThai), ref _TrangThai, value); }
-        }
-
-        private string _LichHoc;
-        [XafDisplayName("Lịch Học")]
-        public string LichHoc
-        {
-            get { return _LichHoc; }
-            set { SetPropertyValue<string>(nameof(LichHoc), ref _LichHoc, value); }
-        }
-
-        private DateTime _NgayBatDau;
-        [XafDisplayName("Ngày Bắt Đầu")]
-        public DateTime NgayBatDau
-        {
-            get { return _NgayBatDau; }
-            set { SetPropertyValue<DateTime>(nameof(NgayBatDau), ref _NgayBatDau, value); }
-        }
+        }*/
 
         private GiangVien _GiangVienLHP;
         [XafDisplayName("Giảng Viên")]
@@ -104,11 +121,13 @@ namespace QLDT.Module.BusinessObjects
             get { return BangDiemLopHPs?.Count; }
         }
 
-        public enum Status
+        [XafDisplayName("Tên Lớp Học Phần")]
+        public string TenLopHocPhan
         {
-            Start,
-            Progress,
-            End
+            get
+            {
+                return NgayBatDau != null ? string.Format("{0}({1})", MonHocLHP.TenMonHoc, NgayBatDau) : string.Format("{0}", MonHocLHP.TenMonHoc);
+            }
         }
     }
 }
