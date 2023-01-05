@@ -92,7 +92,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         [Association("bdkh-mh")]
-        [XafDisplayName("Khóa Học")]
+        [XafDisplayName("Bảng Điểm")]
         //[PersistentAlias]
         public XPCollection<BangDiemKhoaHoc> BangDiemKhoaHocs
         {

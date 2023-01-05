@@ -10,9 +10,7 @@ namespace QLDT.Module.BusinessObjects
     [System.ComponentModel.DisplayName("Lớp Học Phần")]
     [DefaultProperty("TenLopHocPhan")]
     public class LopHocPhan : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        // Use CodeRush to create XPO classes and properties with a few keystrokes.
-        // https://docs.devexpress.com/CodeRushForRoslyn/118557
+    {
         public LopHocPhan(Session session)
             : base(session)
         {
@@ -20,12 +18,11 @@ namespace QLDT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
 
         private string _MaLHP;
-        [XafDisplayName("Lịch Học")]
+        [XafDisplayName("Mã Lớp Học Phần")]
         public string MaLHP
         {
             get { return _MaLHP; }
@@ -90,14 +87,6 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(CongThucDiem), ref _CongThucDiem, value); }
         }
 
-        /*private Status _TrangThai;
-        [XafDisplayName("Trạng Thái")]
-        public Status TrangThai
-        {
-            get { return _TrangThai; }
-            set { SetPropertyValue<Status>(nameof(TrangThai), ref _TrangThai, value); }
-        }*/
-
         private GiangVien _GiangVienLHP;
         [XafDisplayName("Giảng Viên")]
         [Association("lhp-gv")]
@@ -125,7 +114,8 @@ namespace QLDT.Module.BusinessObjects
         public string TenLopHocPhan
         {
             get
-            {
+            {   
+                if (MonHocLHP == null) return "";
                 return NgayBatDau != null ? string.Format("{0}({1})", MonHocLHP.TenMonHoc, NgayBatDau) : string.Format("{0}", MonHocLHP.TenMonHoc);
             }
         }

@@ -47,7 +47,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private Boolean _HoanThanhKhoaHoc;
-        [XafDisplayName("Hoàn Thành Học")]
+        [XafDisplayName("Hoàn Thành Khóa Học")]
         [VisibleInDetailView(false)]
         public Boolean HoanThanhKhoaHoc
         {
@@ -105,11 +105,11 @@ namespace QLDT.Module.BusinessObjects
             get { return GetCollection<BangDiemLopHP>(nameof(BangDiemLopHPs)); }
         }
 
-        [Association("dst-dkh")]
+        /*[Association("dst-dkh")]
         public XPCollection<DanhSachThi> DanhSachThis
         {
             get { return GetCollection<DanhSachThi>(nameof(DanhSachThis)); }
-        }
+        }*/
 
     }
 }

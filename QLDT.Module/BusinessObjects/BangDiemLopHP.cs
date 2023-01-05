@@ -18,6 +18,14 @@ namespace QLDT.Module.BusinessObjects
             base.AfterConstruction();
         }
 
+        /*private DanhSachThi _ThiSinh;
+        [Association("dst-bdlhp")]
+        public DanhSachThi ThiSinh
+        {
+            get { return _ThiSinh; }
+            set { SetPropertyValue<DanhSachThi>(nameof(ThiSinh), ref _ThiSinh, value); }
+        }*/
+
 
         private DangKyHoc _DangKyHocBDLHP;
         [Association("bdlhp-dkh")]

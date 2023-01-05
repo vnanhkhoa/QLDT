@@ -1,5 +1,4 @@
 ﻿using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
@@ -21,8 +20,8 @@ namespace QLDT.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-
         private string _PhongThi;
+        [XafDisplayName("Phòng Thi")]
         public string PhongThi
         {
             get { return _PhongThi; }
@@ -30,7 +29,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private DateTime _NgayThi;
-        [XafDisplayName("Ngày giờ thi")]
+        [XafDisplayName("Ngày Giờ Thi")]
         public DateTime NgayThi
         {
             get { return _NgayThi; }
@@ -38,6 +37,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private int _ThoiGianThi;
+        [XafDisplayName("Thời Gian Thi")]
         public int ThoiGianThi
         {
             get { return _ThoiGianThi; }
@@ -53,7 +53,16 @@ namespace QLDT.Module.BusinessObjects
         }
 
 
+        private string _GhiChu;
+        [XafDisplayName("Ghi Chú")]
+        public string GhiChu
+        {
+            get { return _GhiChu; }
+            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
+        }
+
         private MonHoc _MonHocCT;
+        [XafDisplayName("Môn Thi")]
         public MonHoc MonHocCT
         {
             get { return _MonHocCT; }

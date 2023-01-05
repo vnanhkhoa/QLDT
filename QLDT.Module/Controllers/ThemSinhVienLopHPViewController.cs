@@ -49,7 +49,8 @@ namespace QLDT.Module.Controllers
 
             IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(DangKyHoc));
             CollectionSourceBase collection = new CollectionSource(objectSpace, typeof(DangKyHoc));
-            collection.Criteria["Filter1"] = CriteriaOperator.FromLambda<DangKyHoc>(d => bangDiemKh.Contains(d.Oid));
+            collection.Criteria["Filter1"] = CriteriaOperator
+                .FromLambda<DangKyHoc>(d => bangDiemKh.Contains(d.Oid));
             e.View = Application.CreateListView("DangKyHoc_ListView", collection, true);
         }
         protected override void OnActivated()

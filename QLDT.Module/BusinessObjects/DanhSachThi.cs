@@ -1,16 +1,14 @@
-﻿using DevExpress.Persistent.Base;
+﻿using DevExpress.ExpressApp.DC;
+using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
-using System.ComponentModel;
 
 namespace QLDT.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty(nameof(DangKyHocDST))]
+    /*[DefaultProperty(nameof(ThiSinh))]*/
     public class DanhSachThi : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        // Use CodeRush to create XPO classes and properties with a few keystrokes.
-        // https://docs.devexpress.com/CodeRushForRoslyn/118557
+    { 
         public DanhSachThi(Session session)
             : base(session)
         {
@@ -18,17 +16,16 @@ namespace QLDT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
-
-        private DangKyHoc _DangKyHocDST;
-        [Association("dst-dkh")]
-        public DangKyHoc DangKyHocDST
+        /*private BangDiemLopHP _BangDiemLopHPDST;
+        [XafDisplayName("Thí Sinh")]
+        [Association("dst-bdlhp")]
+        public BangDiemLopHP BangDiemLopHPDST
         {
-            get { return _DangKyHocDST; }
-            set { SetPropertyValue<DangKyHoc>(nameof(DangKyHocDST), ref _DangKyHocDST, value); }
-        }
+            get { return _BangDiemLopHPDST; }
+            set { SetPropertyValue<BangDiemLopHP>(nameof(BangDiemLopHPDST), ref _BangDiemLopHPDST, value); }
+        }*/
 
         private CaThi _CaThiDST;
         [Association("dst-ct")]
@@ -38,11 +35,30 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<CaThi>(nameof(CaThiDST), ref _CaThiDST, value); }
         }
 
-        private bool _VangMat;
-        public bool VangMat
+        private bool _DaNop;
+        [XafDisplayName("Đã Nộp")]
+        public bool DaNop
         {
-            get { return _VangMat; }
-            set { SetPropertyValue<bool>(nameof(VangMat), ref _VangMat, value); }
+            get { return _DaNop; }
+            set { SetPropertyValue<bool>(nameof(DaNop), ref _DaNop, value); }
         }
+
+        private float? _Diem;
+        [XafDisplayName("Điểm")]
+        public float? Diem
+        {
+            get { return _Diem; }
+            set { SetPropertyValue(nameof(Diem), ref _Diem, value); }
+        }
+
+        private string _Note;
+        [XafDisplayName("Ghi Chú")]
+        public string Note
+        {
+            get { return _Note; }
+            set { SetPropertyValue<string>(nameof(Note), ref _Note, value); }
+        }
+
+
     }
 }

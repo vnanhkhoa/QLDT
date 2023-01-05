@@ -8,9 +8,7 @@ namespace QLDT.Module.BusinessObjects
     [DefaultClassOptions]
     [System.ComponentModel.DisplayName("Bảng điểm khóa học")]
     public class BangDiemKhoaHoc : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        // Use CodeRush to create XPO classes and properties with a few keystrokes.
-        // https://docs.devexpress.com/CodeRushForRoslyn/118557
+    {
         public BangDiemKhoaHoc(Session session)
             : base(session)
         {
@@ -18,7 +16,6 @@ namespace QLDT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
         private MonHoc _MoHocBD;
@@ -38,7 +35,6 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<double?>(nameof(Diem), ref _Diem, value); }
         }
 
-
         private string _GhiChu;
         [XafDisplayName("Ghi Chú")]
         public string GhiChu
@@ -55,7 +51,5 @@ namespace QLDT.Module.BusinessObjects
             get { return _DangKyHocBDKH; }
             set { SetPropertyValue<DangKyHoc>(nameof(DangKyHocBDKH), ref _DangKyHocBDKH, value); }
         }
-
-
     }
 }

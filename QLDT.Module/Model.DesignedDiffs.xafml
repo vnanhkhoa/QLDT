@@ -44,11 +44,16 @@
     <SchemaModule Name="SystemModule" Version="22.1.5.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="BangDiemKhoaHoc_ListView">
+    <ListView Id="BangDiemKhoaHoc_ListView" IsGroupPanelVisible="True">
       <Columns>
-        <ColumnInfo Id="DangKyHocBDKH" Index="0" />
+        <ColumnInfo Id="DangKyHocBDKH" Index="0" SortOrder="Ascending" GroupIndex="0" />
         <ColumnInfo Id="MoHocBD" Index="1" />
         <ColumnInfo Id="Diem" Index="2" />
+      </Columns>
+    </ListView>
+    <ListView Id="BangDiemLopHP_ListView" IsGroupPanelVisible="False">
+      <Columns>
+        <ColumnInfo Id="DangKyHocBDLHP" SortOrder="Ascending" GroupIndex="0" />
       </Columns>
     </ListView>
     <DetailView Id="ChuongTrinhDaoTao_DetailView">
@@ -57,16 +62,26 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="9.613869188337274">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="10.910582444626744">
             <LayoutGroup Id="ChuongTrinhDaoTao" RelativeSize="100" Caption="ChuongTrinhDaoTao">
-              <LayoutItem Id="TenChuongTrinh" ViewItem="TenChuongTrinh" Index="0" RelativeSize="51.63934426229508" IsNewNode="True" Removed="True" />
-              <LayoutGroup Id="Autoab8b1c1f-5591-4b2d-b910-8ff1b9fd18d3" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="48.36065573770492" IsNewNode="True">
-                <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" Index="0" RelativeSize="49.967213114754095" IsNewNode="True" />
-                <LayoutItem Id="SoMon" ViewItem="SoMon" Index="1" RelativeSize="50.032786885245905" HorizontalAlign="Left" VerticalAlign="Middle" IsNewNode="True" />
+              <LayoutItem Id="TenChuongTrinh" ViewItem="TenChuongTrinh" Index="0" RelativeSize="47.36842105263158" IsNewNode="True" Removed="True" />
+              <LayoutGroup Id="Autoab8b1c1f-5591-4b2d-b910-8ff1b9fd18d3" ShowCaption="False" Caption="Autoab8b1c1f-5591-4b2d-b910-8ff1b9fd18d3(5)" Direction="Horizontal" Index="1" RelativeSize="52.63157894736842" IsNewNode="True">
+                <LayoutItem Id="SoNgay" ViewItem="SoNgay" Index="0" RelativeSize="50.42016806722689" IsNewNode="True" />
+                <LayoutItem Id="ThoiGianDaoTao" ViewItem="ThoiGianDaoTao" Index="1" RelativeSize="0.6002400960384153" IsNewNode="True" />
+                <LayoutItem Id="SoMon" ViewItem="SoMon" Index="2" RelativeSize="48.97959183673469" HorizontalAlign="Left" VerticalAlign="Middle" IsNewNode="True" />
               </LayoutGroup>
               <LayoutItem Id="SoMon" RelativeSize="48.36065573770492" Index="1" Removed="True" />
+              <LayoutItem Id="SoNgay" Removed="True" />
             </LayoutGroup>
           </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="89.08941755537326">
+            <LayoutGroup Id="KhungChuongTrinhs" RelativeSize="100">
+              <LayoutItem Id="KhungChuongTrinhs" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="khoaHocs" RelativeSize="100">
+              <LayoutItem Id="khoaHocs" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -78,18 +93,18 @@
         <ColumnInfo Id="GhiChu" Index="1" />
       </Columns>
     </ListView>
-    <ListView Id="ChuongTrinhDaoTao_ListView" AutoExpandAllGroups="True" FreezeColumnIndices="True">
+    <ListView Id="ChuongTrinhDaoTao_ListView" AutoExpandAllGroups="True" FreezeColumnIndices="True" AllowEdit="True">
       <Columns>
         <ColumnInfo Id="Oid" Index="-1" />
         <ColumnInfo Id="TenChuongTrinh" Index="0" />
         <ColumnInfo Id="SoMon" Index="2" />
+        <ColumnInfo Id="SoNgay" Index="2" />
       </Columns>
       <SplitLayout ViewsOrder="ListViewDetailView" />
     </ListView>
     <DetailView Id="DangKyHoc_DetailView">
       <Items>
         <PropertyEditor Id="BangDiemLopHPs" Caption="Bảng Điểm Lớp Học Phần" />
-        <PropertyEditor Id="DanhSachThis" Caption="Danh Sách Thi" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -119,16 +134,20 @@
             <LayoutGroup Id="BangDiemLopHPs" RelativeSize="100">
               <LayoutItem Id="BangDiemLopHPs" RelativeSize="100" />
             </LayoutGroup>
-            <LayoutGroup Id="DanhSachThis" RelativeSize="100">
-              <LayoutItem Id="DanhSachThis" RelativeSize="100" />
-            </LayoutGroup>
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="DangKyHoc_ListView" IsGroupPanelVisible="False">
+      <Columns>
+        <ColumnInfo Id="HocVienDKH" SortIndex="-1" GroupIndex="0" />
+      </Columns>
+    </ListView>
     <ListView Id="DapAn_ListView" IsGroupPanelVisible="True">
       <Columns>
-        <ColumnInfo Id="NganHangDeDA" SortOrder="Ascending" GroupIndex="0" />
+        <ColumnInfo Id="CDapan" Index="0" />
+        <ColumnInfo Id="NganHangDeDA" SortOrder="Ascending" GroupIndex="0" Index="1" />
+        <ColumnInfo Id="Dung" SortIndex="0" SortOrder="Ascending" />
       </Columns>
     </ListView>
     <ListView Id="KhoaHoc_HocViens_ListView" AllowNew="False" AllowUnlink="False" DataAccessMode="Client" DetailViewID="DangKyHoc_DetailView">
@@ -137,20 +156,57 @@
       </Columns>
     </ListView>
     <DetailView Id="KhungChuongTrinh_DetailView" DefaultFocusedItem="" />
-    <ListView Id="KhungChuongTrinh_ListView" FreezeColumnIndices="True" Caption="Khung Chương Trình" AutoExpandAllGroups="True" GroupSummary="" DetailViewID="">
+    <ListView Id="KhungChuongTrinh_ListView" FreezeColumnIndices="True" Caption="Khung Chương Trình" AutoExpandAllGroups="True" GroupSummary="" DetailViewID="" IsGroupPanelVisible="False">
       <Columns>
         <ColumnInfo Id="Oid" Index="-1" />
-        <ColumnInfo Id="ChuongTrinhDaoTao" Index="0" />
+        <ColumnInfo Id="ChuongTrinhDaoTao" Index="0" SortOrder="Ascending" GroupIndex="0" />
         <ColumnInfo Id="MonHocKCT" Index="1" />
         <ColumnInfo Id="GhiChu" Index="2" />
       </Columns>
     </ListView>
-    <ListView Id="LopHocPhan_BangDiemLopHPs_ListView" AllowEdit="True" AllowLink="False" AllowNew="False" AllowUnlink="False" NewItemRowPosition="Top" ShowAutoFilterRow="True" />
+    <ListView Id="LopHocPhan_BangDiemLopHPs_ListView" AllowEdit="False" AllowLink="False" AllowNew="False" AllowUnlink="False" NewItemRowPosition="Top" ShowAutoFilterRow="True" MasterDetailMode="ListViewOnly" />
+    <DetailView Id="LopHocPhan_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="28.38392124692371">
+            <LayoutGroup Id="LopHocPhan" RelativeSize="100">
+              <LayoutGroup Id="LopHocPhan_col1" RelativeSize="49.969192852741834">
+                <LayoutItem Id="MaLHP" RelativeSize="23.333333333333332" />
+                <LayoutItem Id="LichHoc" RelativeSize="17.77777777777778" />
+                <LayoutItem Id="MonHocLHP" RelativeSize="17.77777777777778" />
+                <LayoutItem Id="SoBuoi" RelativeSize="17.77777777777778" />
+                <LayoutItem Id="NgayBatDau" RelativeSize="23.333333333333332" />
+              </LayoutGroup>
+              <LayoutGroup Id="LopHocPhan_col2" RelativeSize="50.030807147258166">
+                <LayoutItem Id="KhoaHocLHP" RelativeSize="23.333333333333332" />
+                <LayoutItem Id="CongThucDieuKienDiem" RelativeSize="17.77777777777778" />
+                <LayoutItem Id="CongThucDiem" RelativeSize="17.77777777777778" />
+                <LayoutItem Id="SoHV" RelativeSize="41.111111111111114" />
+                <LayoutItem Id="TenLopHocPhan" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="BangDiemLopHPs_Group" Direction="Vertical" RelativeSize="71.6160787530763">
+            <LayoutItem Id="BangDiemLopHPs" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="MonHoc_BangDiemKhoaHocs_ListView">
       <Columns>
         <ColumnInfo Id="DangKyHocBDKH" Caption="Học Viên" Index="0" />
       </Columns>
     </ListView>
     <ListView Id="MonHoc_KhungChuongTrinhs_ListView" AllowDelete="True" AllowLink="True" AllowNew="True" />
+    <ListView Id="NganHangDe_ListView" IsGroupPanelVisible="False">
+      <Columns>
+        <ColumnInfo Id="MonHocNHD" SortOrder="Ascending" GroupIndex="0" />
+      </Columns>
+    </ListView>
+    <ListView Id="XepLoai_ListView">
+      <Columns>
+        <ColumnInfo Id="TuDiem" SortIndex="0" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

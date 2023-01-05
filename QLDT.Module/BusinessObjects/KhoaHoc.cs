@@ -1,6 +1,7 @@
 ﻿using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
+using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using System.ComponentModel;
 
@@ -22,19 +23,26 @@ namespace QLDT.Module.BusinessObjects
         [XafDisplayName("Tên Khoá Học")]
         public string TenKhoaHoc
         {
-            get { return String.Format("{0}({1})",CTDT.TenChuongTrinh,NgayBatDau); }
+            get
+            {   
+                return string.Format("{0}({1})", CTDT.TenChuongTrinh, NgayBatDau);
+            }
         }
 
         private DateTime _NgayBatDau;
-        [XafDisplayName("Ngày Bắt Đầu")]
+        [XafDisplayName("Ngày Bắt Đầu"), RuleUniqueValue]
         public DateTime NgayBatDau
         {
             get { return _NgayBatDau; }
-            set { SetPropertyValue<DateTime>(nameof(NgayBatDau), ref _NgayBatDau, value); }
+            set 
+            { 
+                bool isModify = SetPropertyValue<DateTime>(nameof(NgayBatDau), ref _NgayBatDau, value);
+                if (isModify) OnChanged(nameof(TenKhoaHoc)); ;
+            }
         }
 
         private DateTime _NgayKetThuc;
-        [XafDisplayName("Ngày Kết Thúc")]
+        [XafDisplayName("Ngày Kết Thúc"), RuleUniqueValue]
         public DateTime NgayKetThuc
         {
             get { return _NgayKetThuc; }
@@ -42,7 +50,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private ChuongTrinhDaoTao _CTDT;
-        [XafDisplayName("Chương trình đào tạo")]
+        [XafDisplayName("Chương trình đào tạo"), RuleUniqueValue]
         [Association("kh-ctdt")]
         public ChuongTrinhDaoTao CTDT
         {
@@ -58,11 +66,11 @@ namespace QLDT.Module.BusinessObjects
         }
 
         [Association("lhp-kh")]
+        [XafDisplayName("Lớp Học Phần")]
         public XPCollection<LopHocPhan> LopHocPhans
         {
             get { return GetCollection<LopHocPhan>(nameof(LopHocPhans)); }
         }
-
 
         [XafDisplayName("Số HV")]
         [ReadOnly(true)]

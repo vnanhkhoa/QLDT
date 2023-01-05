@@ -2,15 +2,13 @@
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace QLDT.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[Persistent("DatabaseTableName")]
-    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
+    [System.ComponentModel.DisplayName("Xếp Loại")]
+    [DefaultProperty("TenLoai")]
     public class XepLoai : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
@@ -50,7 +48,5 @@ namespace QLDT.Module.BusinessObjects
             get { return _DenDiem; }
             set { SetPropertyValue<float>(nameof(DenDiem), ref _DenDiem, value); }
         }
-
-
     }
 }

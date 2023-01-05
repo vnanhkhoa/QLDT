@@ -37,7 +37,6 @@ namespace QLDT.Module.BusinessObjects
         }
 
         [XafDisplayName("Số Môn")]
-        [ReadOnly(true)]
         public int SoMon
         {
             get
@@ -45,7 +44,6 @@ namespace QLDT.Module.BusinessObjects
                 return KhungChuongTrinhs.Count;
             }
         }
-
 
         [Association("ctdd-kct"), DevExpress.Xpo.Aggregated]
         [XafDisplayName("Khung Chương Trình")]
@@ -60,7 +58,6 @@ namespace QLDT.Module.BusinessObjects
         {
             get { return GetCollection<KhoaHoc>(nameof(khoaHocs)); }
         }
-
 
     }
 }

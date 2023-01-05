@@ -47,7 +47,7 @@ namespace QLDT.Module.Controllers
 
         private void ShowAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
         {
-            IObjectSpace objectSpace = Application.CreateObjectSpace();
+            IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(MonHoc));
             var list = chuongTrinhDaoTao.KhungChuongTrinhs.Select(k => k.MonHocKCT.Oid).ToList();
             CollectionSourceBase collection = new CollectionSource(objectSpace, typeof(MonHoc));
             collection.Criteria["Filter1"] = new NotOperator(new InOperator("Oid", list));
