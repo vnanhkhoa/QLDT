@@ -59,6 +59,39 @@
     <SchemaModule Name="SystemModule" Version="22.2.3.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <DetailView Id="ApplicationUser_DetailView">
+      <Items>
+        <PropertyEditor Id="IsGV" Caption="Giảng Viên" />
+        <PropertyEditor Id="IsHV" Caption="Học Viện" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="4.769526248399488">
+            <LayoutGroup Id="ApplicationUser" Direction="Vertical" RelativeSize="51.67785234899329" Caption="ApplicationUser">
+              <LayoutItem Id="UserName" ViewItem="UserName" Index="0" RelativeSize="100" IsNewNode="True" />
+              <LayoutItem Id="IsGV" ViewItem="IsGV" Index="1" RelativeSize="74.34017595307918" Removed="True" />
+              <LayoutItem Id="IsHV" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="PermissionPolicyUser" RelativeSize="48.32214765100671" Direction="Horizontal" Caption="PermissionPolicyUser">
+              <LayoutItem Id="IsHV" ViewItem="IsHV" Index="0" RelativeSize="25.17766497461929" IsNewNode="True" />
+              <LayoutItem Id="IsGV" ViewItem="IsGV" Index="1" RelativeSize="24.805414551607445" IsNewNode="True" />
+              <LayoutItem Id="IsActive" ViewItem="IsActive" Index="2" RelativeSize="24.839255499153975" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="ChangePasswordOnFirstLogon" ViewItem="ChangePasswordOnFirstLogon" Index="3" RelativeSize="25.17766497461929" IsNewNode="True" Removed="True" />
+              <LayoutItem Id="UserName" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Roles_Group" Direction="Vertical" RelativeSize="95.23047375160051">
+            <LayoutItem Id="Roles" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ApplicationUser_ListView" Caption="Users">
+      <Columns>
+        <ColumnInfo Id="IsHV" Caption="Học Viên" />
+        <ColumnInfo Id="IsGV" Caption="Giảng Viên" />
+        <ColumnInfo Id="IsActive" Index="3" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

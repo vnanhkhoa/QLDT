@@ -33,26 +33,5 @@ public class ApplicationUserLoginInfo : BaseObject, ISecurityUserLoginInfo {
         set { SetPropertyValue(nameof(User), ref user, value); }
     }
 
-    [XafDisplayName("Học Viên")]
-    private bool _IsHV;
-    public bool IsHV
-    {
-        get { return _IsHV; }
-        set { SetPropertyValue<bool>(nameof(IsHV), ref _IsHV, value); }
-    }
-
-    [XafDisplayName("Giảng Viên")]
-
-    private bool _IsGV;
-    public bool IsGV
-    {
-        get { return _IsGV; }
-        set { SetPropertyValue<bool>(nameof(IsGV), ref _IsGV, value); }
-    }
-
-
-
-
-
     object ISecurityUserLoginInfo.User => User;
 }

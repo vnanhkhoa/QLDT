@@ -10,9 +10,7 @@ namespace QLDT.Module.BusinessObjects
     [System.ComponentModel.DisplayName("Giảng Viên")]
     [DefaultProperty("HoVaTen")]
     public class GiangVien : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        // Use CodeRush to create XPO classes and properties with a few keystrokes.
-        // https://docs.devexpress.com/CodeRushForRoslyn/118557
+    {
         public GiangVien(Session session)
             : base(session)
         {
@@ -20,7 +18,6 @@ namespace QLDT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
 
@@ -73,8 +70,6 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<string>(nameof(DiaChi), ref _DiaChi, value); }
         }
 
-
-
         private string _SoDienThoai;
         [XafDisplayName("Số Điện Thoại")]
         public string SoDienThoai
@@ -82,7 +77,6 @@ namespace QLDT.Module.BusinessObjects
             get { return _SoDienThoai; }
             set { SetPropertyValue<string>(nameof(SoDienThoai), ref _SoDienThoai, value); }
         }
-
 
         [DevExpress.Xpo.Aggregated, Association("lhp-gv")]
         [XafDisplayName("Lớp Học Phần")]
@@ -97,7 +91,5 @@ namespace QLDT.Module.BusinessObjects
         {
             get { return GetCollection<CaThi>(nameof(CaThis)); }
         }
-
-
     }
 }

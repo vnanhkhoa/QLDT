@@ -1,4 +1,6 @@
-﻿using DevExpress.ExpressApp.DC;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp.DC;
+using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
@@ -10,7 +12,7 @@ namespace QLDT.Module.BusinessObjects
     [System.ComponentModel.DisplayName("Học Viên")]
     [DefaultProperty("HoVaTen")]
     public class HocVien : BaseObject
-    { 
+    {
         public HocVien(Session session)
             : base(session)
         {
@@ -18,9 +20,16 @@ namespace QLDT.Module.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+
+        private string _SoThe;
+        [XafDisplayName("Số Thẻ"), ModelDefault("AllowEdit", "false")]
+        public string SoThe
+        {
+            get { return _SoThe; }
+            set { SetPropertyValue<string>(nameof(SoThe), ref _SoThe, value); }
+        }
 
         private string _Ho;
         [XafDisplayName("Họ")]
@@ -44,7 +53,7 @@ namespace QLDT.Module.BusinessObjects
         [VisibleInDetailView(false)]
         public string HoVaTen
         {
-            get { return String.Format("{0} {1}", Ho,Ten); }
+            get { return String.Format("{0} {1}", Ho, Ten); }
         }
 
 
@@ -70,9 +79,12 @@ namespace QLDT.Module.BusinessObjects
         public string CanCucCongDan
         {
             get { return _CanCucCongDan; }
-            set { SetPropertyValue<string>(nameof(CanCucCongDan), ref _CanCucCongDan, value); }
+            set 
+            {
+                SetPropertyValue<string>(nameof(CanCucCongDan), ref _CanCucCongDan, value); 
+                SoThe = value;
+            }
         }
-
 
         private string _SoDienThoai;
         [XafDisplayName("Số Điện Thoại")]
@@ -103,7 +115,7 @@ namespace QLDT.Module.BusinessObjects
         [XafDisplayName("Địa Chỉ")]
         public string DiaChi
         {
-            get { return _GhiChu; }
+            get { return _DiaChi; }
             set { SetPropertyValue<string>(nameof(DiaChi), ref _DiaChi, value); }
         }
 
