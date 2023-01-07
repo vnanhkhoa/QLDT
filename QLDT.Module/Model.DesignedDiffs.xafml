@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="QLDT">
+  <NavigationItems NavigationStyle="TreeList" DefaultChildItemsDisplayStyle="List" ShowImages="False" GenerateRelatedViewVariantsGroup="False" StartupNavigationItem="ChuongTrinhDaoTao_ListView">
+    <Items>
+      <Item Id="@012ea65a-d06c-4e4b-9ad0-bb6db0145ad0" Caption="Đào Tạo" Index="0" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="DapAn_ListView" ViewId="DapAn_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="GiangVien_ListView" ViewId="GiangVien_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="KhoaHoc_ListView" ViewId="KhoaHoc_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="KhungChuongTrinh_ListView" ViewId="KhungChuongTrinh_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="MonHoc_ListView" ViewId="MonHoc_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="NganHangDe_ListView" ViewId="NganHangDe_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="XepLoai_ListView" ViewId="XepLoai_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@f52614a3-becd-4135-bb42-83bfba857419" Caption="Khóa Học" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="BangDiemKhoaHoc_ListView" ViewId="BangDiemKhoaHoc_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="BangDiemLopHP_ListView" ViewId="BangDiemLopHP_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="ChuongTrinhDaoTao_ListView" ViewId="ChuongTrinhDaoTao_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="DangKyHoc_ListView" ViewId="DangKyHoc_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="HocVien_ListView" ViewId="HocVien_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="LopHocPhan_ListView" ViewId="LopHocPhan_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="@a1a0c7c1-ca54-4dd8-807e-9b43d8a82ec8" Caption="Thi" Index="2" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="BaiThi_ListView" ViewId="BaiThi_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="CaThi_ListView" ViewId="CaThi_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="DanhSachThi_ListView" ViewId="DanhSachThi_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default" Caption="User Setting" Index="3">
+        <Items>
+          <Item Id="BaiThi_ListView" Removed="True" />
+          <Item Id="BangDiemKhoaHoc_ListView" Removed="True" />
+          <Item Id="BangDiemLopHP_ListView" Removed="True" />
+          <Item Id="CaThi_ListView" Removed="True" />
+          <Item Id="ChuongTrinhDaoTao_ListView" Removed="True" />
+          <Item Id="DangKyHoc_ListView" Removed="True" />
+          <Item Id="DanhSachThi_ListView" Removed="True" />
+          <Item Id="DapAn_ListView" Removed="True" />
+          <Item Id="GiangVien_ListView" Removed="True" />
+          <Item Id="HocVien_ListView" Removed="True" />
+          <Item Id="KhoaHoc_ListView" Removed="True" />
+          <Item Id="KhungChuongTrinh_ListView" Removed="True" />
+          <Item Id="LopHocPhan_ListView" Removed="True" />
+          <Item Id="MonHoc_ListView" Removed="True" />
+          <Item Id="NganHangDe_ListView" Removed="True" />
+          <Item Id="XepLoai_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="22.2.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+  </Views>
+</Application>
