@@ -1,13 +1,16 @@
-﻿using DevExpress.ExpressApp;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Xpo;
+using QLDT.Module.BusinessObjects;
 
 namespace QLDT.Module;
 
 // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
 public sealed class QLDTModule : ModuleBase
 {
+    public static bool isHV = false;
     public QLDTModule()
     {
         // 
@@ -36,5 +39,30 @@ public sealed class QLDTModule : ModuleBase
     {
         base.CustomizeTypesInfo(typesInfo);
         CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
+    }
+
+    public static Guid? GetCurrentUserHocVien(IObjectSpace objectSpace)
+    {
+        ApplicationUser Owner = objectSpace.FindObject<ApplicationUser>(CriteriaOperator.Parse("Oid=CurrentUserId()"));
+        if (Owner.IsHV)
+        {
+            var hv = objectSpace.FindObject<HocVien>(CriteriaOperator.Parse("SoThe=?", Owner.UserName));
+            if (hv != null)
+            {
+                isHV = true;
+                return hv.Oid;
+            }
+        }
+
+        if (Owner.IsGV)
+        {
+            var gv = objectSpace.FindObject<GiangVien>(CriteriaOperator.Parse("NameSort=?", Owner.UserName));
+            if (gv != null)
+            {
+                isHV = false;
+                return gv.Oid;
+            }
+        }
+        return null;
     }
 }

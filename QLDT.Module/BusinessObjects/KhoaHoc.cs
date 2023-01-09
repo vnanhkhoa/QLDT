@@ -24,25 +24,26 @@ namespace QLDT.Module.BusinessObjects
         public string TenKhoaHoc
         {
             get
-            {   
+            {
+                if (CTDT == null) return "";
                 return string.Format("{0}({1})", CTDT.TenChuongTrinh, NgayBatDau);
             }
         }
 
         private DateTime _NgayBatDau;
-        [XafDisplayName("Ngày Bắt Đầu"), RuleUniqueValue]
+        [XafDisplayName("Ngày Bắt Đầu")]
         public DateTime NgayBatDau
         {
             get { return _NgayBatDau; }
-            set 
-            { 
+            set
+            {
                 bool isModify = SetPropertyValue<DateTime>(nameof(NgayBatDau), ref _NgayBatDau, value);
                 if (isModify) OnChanged(nameof(TenKhoaHoc)); ;
             }
         }
 
         private DateTime _NgayKetThuc;
-        [XafDisplayName("Ngày Kết Thúc"), RuleUniqueValue]
+        [XafDisplayName("Ngày Kết Thúc")]
         public DateTime NgayKetThuc
         {
             get { return _NgayKetThuc; }
@@ -50,13 +51,23 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private ChuongTrinhDaoTao _CTDT;
-        [XafDisplayName("Chương trình đào tạo"), RuleUniqueValue]
+        [XafDisplayName("Chương trình đào tạo")]
         [Association("kh-ctdt")]
         public ChuongTrinhDaoTao CTDT
         {
             get { return _CTDT; }
             set { SetPropertyValue<ChuongTrinhDaoTao>(nameof(CTDT), ref _CTDT, value); }
         }
+
+        private string _GhiChu;
+        [XafDisplayName("Ghi Chú")]
+        public string GhiChu
+        {
+            get { return _GhiChu; }
+            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
+        }
+
+
 
         [XafDisplayName("Học Viên")]
         [Association("dkh-kh")]

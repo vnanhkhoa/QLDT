@@ -46,22 +46,13 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<DateTime>(nameof(NgayDangKyHoc), ref _NgayDangKyHoc, value); }
         }
 
-        private Boolean _HoanThanhKhoaHoc;
+        private bool _HoanThanhKhoaHoc;
         [XafDisplayName("Hoàn Thành Khóa Học")]
         [VisibleInDetailView(false)]
-        public Boolean HoanThanhKhoaHoc
+        public bool HoanThanhKhoaHoc
         {
             get { return _HoanThanhKhoaHoc; }
-            set { SetPropertyValue<Boolean>(nameof(HoanThanhKhoaHoc), ref _HoanThanhKhoaHoc, value); }
-        }
-
-        private string _XepLoai;
-        [XafDisplayName("Xếp Loại")]
-        [VisibleInDetailView(false)]
-        public string XepLoai
-        {
-            get { return _XepLoai; }
-            set { SetPropertyValue<string>(nameof(XepLoai), ref _XepLoai, value); }
+            set { SetPropertyValue<bool>(nameof(HoanThanhKhoaHoc), ref _HoanThanhKhoaHoc, value); }
         }
 
         private float _DiemKhoaHoc;
@@ -73,13 +64,13 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<float>(nameof(DiemKhoaHoc), ref _DiemKhoaHoc, value); }
         }
 
-        private Boolean _HaBac;
+        private bool _HaBac;
         [XafDisplayName("Hạ Bậc")]
         [VisibleInDetailView(false)]
-        public Boolean HaBac
+        public bool HaBac
         {
             get { return _HaBac; }
-            set { SetPropertyValue<Boolean>(nameof(HaBac), ref _HaBac, value); }
+            set { SetPropertyValue<bool>(nameof(HaBac), ref _HaBac, value); }
         }
 
         private XepLoai _LoaiTN;
@@ -90,6 +81,16 @@ namespace QLDT.Module.BusinessObjects
             get { return _LoaiTN; }
             set { SetPropertyValue<XepLoai>(nameof(LoaiTN), ref _LoaiTN, value); }
         }
+
+        private string _GhiChu;
+        [XafDisplayName("Ghi Chú")]
+        public string GhiChu
+        {
+            get { return _GhiChu; }
+            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
+        }
+
+
 
         [Association("bdkh-dkh")]
         [XafDisplayName("Bảng Điểm")]

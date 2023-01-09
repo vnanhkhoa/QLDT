@@ -36,6 +36,15 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<int>(nameof(SoNgay), ref _SoNgay, value); }
         }
 
+
+        private string _GhiChu;
+        [XafDisplayName("Ghi Chú")]
+        public string GhiChu
+        {
+            get { return _GhiChu; }
+            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
+        }
+
         [XafDisplayName("Số Môn")]
         public int SoMon
         {
@@ -49,7 +58,7 @@ namespace QLDT.Module.BusinessObjects
         [XafDisplayName("Khung Chương Trình")]
         public XPCollection<KhungChuongTrinh> KhungChuongTrinhs
         {
-            get { return GetCollection<KhungChuongTrinh>(nameof(KhungChuongTrinhs)); }
+            get => GetCollection<KhungChuongTrinh>(nameof(KhungChuongTrinhs));
         }
 
         [Association("kh-ctdt"), DevExpress.Xpo.Aggregated]

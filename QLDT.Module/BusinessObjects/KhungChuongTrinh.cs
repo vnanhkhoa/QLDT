@@ -37,15 +37,5 @@ namespace QLDT.Module.BusinessObjects
             set { SetPropertyValue<MonHoc>(nameof(MonHocKCT), ref _MonHocKCT, value); }
         }
 
-        private string _GhiChu;
-        [XafDisplayName("Ghi Chú")]
-        public string GhiChu
-        {
-            get { return _GhiChu; }
-            set { SetPropertyValue<string>(nameof(GhiChu), ref _GhiChu, value); }
-        }
-
-
-
     }
 }

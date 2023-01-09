@@ -1,12 +1,14 @@
 ﻿using DevExpress.ExpressApp.DC;
+using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace QLDT.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    /*[DefaultProperty(nameof(ThiSinh))]*/
+    [DefaultProperty(nameof(BangDiemLopHPDST))]
     public class DanhSachThi : BaseObject
     { 
         public DanhSachThi(Session session)
@@ -18,14 +20,19 @@ namespace QLDT.Module.BusinessObjects
             base.AfterConstruction();
         }
 
-        /*private BangDiemLopHP _BangDiemLopHPDST;
-        [XafDisplayName("Thí Sinh")]
-        [Association("dst-bdlhp")]
+        [XafDisplayName("Số Báo Danh")]
+        public string SBD
+        {
+            get { return BangDiemLopHPDST.DangKyHocBDLHP.HocVienDKH.SoThe; }
+        }
+
+        private BangDiemLopHP _BangDiemLopHPDST;
+        [XafDisplayName("Thí Sinh"), ModelDefault("AllowEdit", "false")]
         public BangDiemLopHP BangDiemLopHPDST
         {
             get { return _BangDiemLopHPDST; }
             set { SetPropertyValue<BangDiemLopHP>(nameof(BangDiemLopHPDST), ref _BangDiemLopHPDST, value); }
-        }*/
+        }
 
         private CaThi _CaThiDST;
         [Association("dst-ct")]

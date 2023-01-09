@@ -3,10 +3,13 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace QLDT.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [System.ComponentModel.DisplayName("Bảng Điểm LHP")]
+    [DefaultProperty(nameof(DangKyHocBDLHP))]
     public class BangDiemLopHP : BaseObject
     {
         public BangDiemLopHP(Session session)
@@ -86,7 +89,6 @@ namespace QLDT.Module.BusinessObjects
             }
         }
 
-
         private double? _CuoiKy;
         [XafDisplayName("Cuối Kỳ")]
         public double? CuoiKy
@@ -110,7 +112,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private bool _DuDieuKien;
-        [XafDisplayName("Đủ Điều Kiện")]
+        [XafDisplayName("Đủ Điều Kiện"),]
         public bool DuDieuKien
         {
             get { return _DuDieuKien; }
@@ -127,8 +129,15 @@ namespace QLDT.Module.BusinessObjects
 
         private void Tinhdiem()
         {
-            if (ChuyenCan != null && GiuaKy != null && CuoiKy != null)
-                TongKet = ChuyenCan * 0.2 + GiuaKy * 0.3 + CuoiKy * 0.5;
+            if(ChuyenCan != null && GiuaKy != null)
+            {
+                var total = (ChuyenCan + GiuaKy) * 1.0 / 2;
+                DuDieuKien = (total >= 5) ? true: false;
+                if (CuoiKy != null)
+                {
+                    TongKet = ChuyenCan * 0.2 + GiuaKy * 0.3 + CuoiKy * 0.5;
+                }
+            }
         }
     }
 }
