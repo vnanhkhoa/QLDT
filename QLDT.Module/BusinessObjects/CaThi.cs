@@ -2,10 +2,13 @@
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using System.ComponentModel;
 
 namespace QLDT.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [System.ComponentModel.DisplayName("Ca Thi")]
+    [DefaultProperty("TenCT")]
     public class CaThi : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
@@ -76,6 +79,11 @@ namespace QLDT.Module.BusinessObjects
             get { return GetCollection<DanhSachThi>(nameof(DanhSachThis)); }
         }
 
-
+        [VisibleInDetailView(false)]
+        [VisibleInListView(false)]
+        public string TenCT
+        {
+            get { return string.Format("{0} {1}",MonHocCT.TenMonHoc,ThoiGianThi); }
+        }
     }
 }

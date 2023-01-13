@@ -112,7 +112,7 @@ namespace QLDT.Module.BusinessObjects
         }
 
         private bool _DuDieuKien;
-        [XafDisplayName("Đủ Điều Kiện"),]
+        [XafDisplayName("Đủ Điều Kiện")]
         public bool DuDieuKien
         {
             get { return _DuDieuKien; }

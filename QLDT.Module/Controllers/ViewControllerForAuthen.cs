@@ -10,7 +10,8 @@ namespace QLDT.Module.Controllers
         {
             InitializeComponent();
             TargetViewId = "HocVien_ListView;DangKyHoc_ListView;BangDiemKhoaHoc_ListView;" +
-                "BangDiemLopHP_ListView;LopHocPhan_ListView;GiangVien_ListView";
+                "BangDiemLopHP_ListView;LopHocPhan_ListView;GiangVien_ListView;" +
+                "DanhSachThi_ListView";
         }
 
         protected override void OnActivated()
@@ -38,7 +39,7 @@ namespace QLDT.Module.Controllers
             var id = QLDTModule.GetCurrentUserHocVien(ObjectSpace);
             if (id != null)
             {
-                CriteriaOperator cri;
+                CriteriaOperator cri = null;
                 switch (View.Id)
                 {
                     case "HocVien_ListView":
@@ -89,6 +90,14 @@ namespace QLDT.Module.Controllers
                         }
 
                         cri = CriteriaOperator.Parse("GiangVienLHP=?", id);
+                        break;
+
+                    case "DanhSachThi_ListView":
+                        ApplicationUser Owner = ObjectSpace.FindObject<ApplicationUser>(CriteriaOperator.Parse("Oid=CurrentUserId()"));
+                        if (Owner.IsHV)
+                        {
+                            cri = CriteriaOperator.Parse("SBD=?", id);
+                        }
                         break;
                     default:
                         cri = null;

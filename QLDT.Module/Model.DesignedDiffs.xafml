@@ -123,6 +123,15 @@
         <ColumnInfo Id="GhiChu" Index="3" />
       </Columns>
     </ListView>
+    <DetailView Id="BangDiemLopHP_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="BangDiemLopHP" Caption="Bảng Điểm Lớp Học Phần" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="CaThi_DanhSachThis_ListView">
       <Columns>
         <ColumnInfo Id="SBD" Index="0" />
@@ -150,7 +159,11 @@
         <ColumnInfo Id="HocVienDKH.HoVaTen" Caption="Học Viên" />
       </Columns>
     </ListView>
-    <ListView Id="DanhSachThi_ListView" Caption="Danh Sách Thi" />
+    <ListView Id="DanhSachThi_ListView" Caption="Danh Sách Thi" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="CaThiDST" SortOrder="Ascending" GroupIndex="0" Caption="Ca Thi " />
+      </Columns>
+    </ListView>
     <DetailView Id="KhoaHoc_DetailView">
       <Items>
         <PropertyEditor Id="CTDT" PropertyName="CTDT" IsNewNode="True" />
